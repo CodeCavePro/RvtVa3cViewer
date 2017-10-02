@@ -1,5 +1,0 @@
-FGx Aircraft
-===
-
-
-
