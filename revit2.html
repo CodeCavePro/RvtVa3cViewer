@@ -21,17 +21,10 @@
     <script src="js/APP_INIT.js"></script>
 </head>
 <body>
-
-<div id="vA3C_output"></div>
-<div class="attributeList"></div>
-<div id="Stats_output"></div>
-
-
-<script type="text/javascript">
-    jQuery(document).ready(function($){
-        VA3C.initViewer($("#vA3C_output"),$("#Stats_output"));
-    });
-</script>
-
+    <section class="vA3C" data-json-url="./models/va3c.json">
+        <div class="output"></div>
+        <div class="attributeList"></div>
+        <div class="stats"></div>
+    </section>
 </body>
 </html>

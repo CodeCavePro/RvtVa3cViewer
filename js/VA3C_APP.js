@@ -458,8 +458,9 @@ VA3C.attributes.init = function(){
     VA3C.attributes.list.draggable( {containment: "parent"});
 
     //set up mouse events - BH question - why do we need both?  Test me.
-    document.getElementById('vA3C_output').addEventListener('click', VA3C.attributes.onMouseClick, false);
-    //document.getElementById('vA3C_output').addEventListener('mousedown', VA3C.attributes.onMouseClick, false);
+    if (VA3C.container && VA3C.container.length && VA3C.container.length > 0) {
+        VA3C.container[0].addEventListener('click', VA3C.attributes.onMouseClick, false);
+    }
 };
 
 //Constructor that creates an object to represent a selected element.

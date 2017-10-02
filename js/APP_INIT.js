@@ -56,5 +56,12 @@ jQuery(document).ready(function($) {
     //hide the dat.gui close controls button
     $(".close-button").css('visibility', 'hidden');
 
-    VA3C.jsonLoader.loadSceneFromURL('./models/va3c.json');    
+    var va3cContainer = $('.vA3C');
+
+    VA3C.initViewer(
+        va3cContainer.find('.output'),
+        va3cContainer.find('.stats')
+    );
+
+    VA3C.jsonLoader.loadSceneFromURL(va3cContainer.data('json-url'));
 });
