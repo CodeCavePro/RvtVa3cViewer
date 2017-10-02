@@ -1,29 +1,25 @@
-[vA3C Hacker Cookbook]( ./index.html )
+vA3C Hacker Cookbook Read Me
 ===
 
-[Enable Drag Objects]( ./enable-drag-objects/index.html ) <small>2014-12-28</small>  
-[Edit Spline]( ./edit-spline/index.html ) <small>2014-12-28</small>  
-[Edit Camera Path]( ./edit-camera-path/index.html ) <small>2014-12-28</small>  
+2015-02-18. Nothing here yet. Or it's broken. It will take some days to complete bringing in examples from vA3C Viewer and Hacker R3.
+
+See <a href=https://github.com/va3c/viewer/tree/gh-pages/va3c-hacker-cookbook/ target=_top title="View files with GitHub" >
+GitHub source code</a>
+or use [vA3C Hacker Cookbook](va3c-hacker-cookbook-viewer-r1.html) menu.
+
+[GitHub web page]( http://va3c.github.io/viewer/va3c-hacker-cookbook/ "view the files as apps." ) <input value="<< You are here" size=15 style="font:bold 11pt monospace;border-width:0;" >  
+&raquo; <a href=https://github.com/va3c/viewer/tree/gh-pages/va3c-hacker-cookbook/ target=_top title="View files with GitHub" >GitHub source code</a> <scan style=display:none ><< You are here</scan>  
+
+
+### Issues
+
+* Highly inconsistent behaviors among the menu items
 
 ### Notes
 2014-12-28 ~ 
 The vA3C Hacker Cookbook is for utilities, demos and hacks that use the various vA3C Hacker functions.
+
 vA3C Viewer Cookbook is about small, standalone JavaScript/HTML files. Also the Viewer Cookbook is an earlier effort with a messy organization.
 
 
 
-Edit everything with the <a href="javascript:(function(){var script=document.createElement('script');script.type='text/javascript';script.src='https://rawgit.com/zz85/zz85-bookmarklets/master/js/ThreeInspector.js';document.body.appendChild(script);})()" title="Why invent your own when you can stand on the shoulders of giants?" >Three.js Inspector</a>?
-Or with <a href="javascript:(function(){var s=document.createElement('script');s.src='http://callum.com/apps/amui/amui.js';document.body.appendChild(s);})();" "title=Hats off to Callum" >AMUI</a>. 
-Both are bookmarklets you may use on most any Three.js file.
-
-
-<style>img { width: 375px; } /* ybookup, this works */</style>
-
-<!--
-<style>
-.it::before {content: 'http://google.com'; }
-
-a { text-decoration: none; } 
-a::before { content: 'bbb'; }
-/* yup, this works */</style>
--->

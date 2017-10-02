@@ -1,9 +1,14 @@
-View Revit JSON 4 Files
+[View Revit JSON 4 Files]( ./view-json-revit-r1.html )
 ===
 
 Many thanks to Jeremy and Matt for these models converted from Revit to Three.js JSON 4.
 
-Stay up to date on progress at Jeremy's web site: [The Building Coder]( http://thebuildingcoder.typepad.com/ ) 
+Stay up to date on progress at Jeremy's web site:  
+[The Building Coder]( http://thebuildingcoder.typepad.com/ ) 
+
+
+[read me]( #../../readme.md# )
+
 
 ![]( ../content/revit/little_house.rvt-640x480.png )
 [[O]]( #dispatch.js#../../../RvtVa3c/models/little_house.rvt.js#py=-10#ry=3#sx=0.01#sy=0.01#sz=0.01#displayMenuLeft )
@@ -29,7 +34,6 @@ Stay up to date on progress at Jeremy's web site: [The Building Coder]( http://t
 
 [[O]]( #dispatch.js#../../../RvtVa3c/models/WallWindow.rvt.js#px=50#py=-10#pz=80#ry=0.08#sx=0.01#sy=0.01#sz=0.01#displayMenuLeft )
 [Wall Window]( #dispatch.js#../../../RvtVa3c/models/WallWindow.rvt.js#px=50#py=-10#pz=80#ry=0.08#sx=0.01#sy=0.01#sz=0.01#add=true#displayMenuLeft )
-
 
 [[O]]( #dispatch.js#../../../RvtVa3c/models/rac_basic_sample_project_scene.rvt.js#sx=0.01#sy=0.01#sz=0.01#noGround#noGrid#displayMenuLeft ) 
 [RAC Basic Sample Project Site]( #dispatch.js#../../../RvtVa3c/models/rac_basic_sample_project_scene.rvt.js#sx=0.01#sy=0.01#sz=0.01#add=true#noGround#displayMenuLeft  ) - Takes a while to load but worth the wait!

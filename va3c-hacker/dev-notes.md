@@ -1,6 +1,42 @@
 Dev Notes
 ===
 
+2015-03-05 ~ Theo
+
+* Geometry Shapes added
+* Hacker R4 #3 published
+* See also much work on vA3C Projects
+
+2015-02-19 ~ Theo
+
+* Working on capture screen and save
+
+2015-02-18 ~ Theo
+
+* Second post ready to go
+* Camera controls examples too longer than wanted but ended up with many more examples the anticipated.
+
+2015-02-16 ~ Theo
+
+* Working on the second post
+* Big oops - set dev version as landing page fr a day or two. Sorry!
+
+
+2015-02-12 ~ Theo
+
+* R4: All change. Big pivot.
+
+
+2015-01-18 ~ Theo
+
+Lots of interesting learning experiences today. Much do to lots of my apps crashing with Three.js R70
+
+The first thing is a simpler and easier way of creating and maintaining materials libraries.
+
+The other thing is that file-dispatch.js is far too complicated. So I explored i=using iframes and srcdoc to load JavaScript.
+All looks very promising. And can help with loading files synchronously.
+
+
 2014-12-29 ~ Theo
 
 Started the Hacker Cookbook and moved three scripts into it:

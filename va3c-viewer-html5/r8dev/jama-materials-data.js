@@ -12,6 +12,7 @@
 		}
 	};
 
+
 	JAMA.materials.NormalFlat = {
 		title: "Normal Flat",
 		category: "Basic",
@@ -58,6 +59,7 @@ http://mrdoob.github.io/three.js/docs/#Reference/Materials/MeshPhongMaterial
 materials.push( new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xdddddd, specular: 0x009900, shininess: 30, shading: THREE.FlatShading } ) );
 */
 
+
 	JAMA.materials.PhongDefault = {
 		title: "Phong Default",
 		category: "Basic",
@@ -69,6 +71,7 @@ materials.push( new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xddddd
 			return material;
 		}
 	};
+
 
 	JAMA.materials.PhongRandom = {
 		title: "Phong Random Smooth",
@@ -662,6 +665,7 @@ materials.push( new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xddddd
 			return material;
 		}
 	};
+
 
 /*
 // vertex colors

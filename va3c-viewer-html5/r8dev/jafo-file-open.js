@@ -105,7 +105,7 @@
 
 Following functions deal with:
 
-Using the operating systen file dialog box to open or append files
+Using the operating system file dialog box to open or append files
 
 Using Drag and Drop to open files
 
@@ -859,7 +859,9 @@ console.log( 'found a whoopsie');
 
 		if ( permalink.override ) {
 
-			obj.material = JAMA.materials[ permalink.mat ].set();
+console.log( 'p', permalink, JAMA.materials[ permalink.mat ] );
+
+//			obj.material = JAMA.materials[ permalink.mat ].set();
 
 		}
 

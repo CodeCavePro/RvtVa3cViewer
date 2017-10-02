@@ -96,6 +96,13 @@
 
 //			}
 
+// MD
+
+		} else if ( fileType === '.md' ) {
+
+console.log( 'md' );
+
+			VH.loadScript( hackerPrefix + 'load-file-md.js', function() { VH.loadFileMD( fileName, parameters ); } );
 
 // OBJ
 
@@ -188,7 +195,17 @@
 
 		} else {
 
-			alert( 'Not a file type, we can deal with yet...')
+//			alert( 'Not a file type, we can deal with yet...');
+
+			script = document.body.appendChild( document.createElement( 'script' ) );
+
+			script.onload = function() {
+
+				VH.loadFileHTMLByURL( fileName, parameters, callbackloadFileHTMLByURL );
+
+			};
+
+			script.src = hackerPrefix + 'load-file-html.js';
 
 		}
 
@@ -234,7 +251,7 @@
 
 	VH.dispatchFileByContents = function( contents, fileName, parameters, callbackFinal ) {
 
-// console.log( 'VH.dispatchFileByContents', contents );
+//console.log( 'VH.dispatchFileByContents', contents );
 //console.log( 'VH.dispatchFileByContents', fileName, parameters  );
 
 
@@ -328,7 +345,7 @@
 
 		} else {
 
-			alert( 'Not a file type, we can deal with yet...')
+			alert( 'Not a file content type we can deal with yet...')
 
 		}
 
@@ -349,7 +366,9 @@
 
 	VH.updateSceneVariables = function() {
 
-		app = VH.ifr.contentWindow ;
+		if ( !VH.ifr ) { return; }
+
+		app = VH.ifr.contentWindow;
 		THREE = app.THREE;
 		renderer = app.renderer;
 		scene = app.scene;

@@ -12,6 +12,9 @@
 	var camera;
 	var controls;
 
+	var airDoodleDisplay = true;
+	var airDoodleVisible;
+
 	VH.initHacker = function () {
 
 		VH.buildUserInterface();
@@ -86,6 +89,10 @@
 				'</h1>' +
 				'<hr>' +
 			'';
+			if ( airDoodleDisplay === true ) {
+				menuRight.addEventListener( 'onmouseover', showDoodle, false );
+				menuRight.addEventListener( 'onmouseout', hideDoodle, false );
+			}
 
 			menuLeft = container.appendChild( document.createElement( 'div' ) );
 			menuLeft.style.cssText = 'background-color: #ccc; display: none; left: 20px; max-height: ' + ( window.innerHeight - 120 ) + 'px ;' +
@@ -114,19 +121,50 @@
 
 	};
 
+
+	function showDoodle() {
+	
+		if ( !airDoodleVisible ) { 
+
+			VH.dispatchFileByURL( ['','../../va3c-hacker-cookbook/enable-air-doodle/r1/enable-air-doodle.html','noGrid','noAxis','noGround' ]);
+
+			airDoodleVisible = true;
+
+		}
+
+	}
+
+	function hideDoodle() {
+
+		VH.ifr.src = '';
+
+		airDoodleVisible = false;
+
+	}
+
+
 	VH.displayMarkdown = function( fname, panel ) {
 
 		var converter = new Showdown.converter();
 
-		panel.innerHTML = panel.header + converter.makeHtml( VH.requestFile( fname ) );
+		VH.requestFile( fname, callback );
 
-		menuLeft.style.display = 'none';
+		function callback() {
 
-		if ( app && app.menuLeft ) app.menuLeft.style.display = 'none';
+			text = VH.xmlHttp.responseText;
 
-		panel.style.display = '';
+			panel.innerHTML = panel.header + converter.makeHtml( text );
+
+			menuLeft.style.display = 'none';
+
+			if ( app && app.menuLeft ) app.menuLeft.style.display = 'none';
+
+			panel.style.display = '';
+
+		}
 
 	};
+
  
 	VH.mouseUp = function() {
 
@@ -165,22 +203,30 @@
 
 	};
 
-	VH.requestFile = function( fileName ){
+	VH.requestFileCallback = function() {
 
-		var xmlHttp = new XMLHttpRequest ();
-		xmlHttp.open( 'GET', fileName, false );
-		xmlHttp.send( null );
-		return xmlHttp.responseText;
+		return VH.xmlHttp.responseText;
+
+	}
+
+	VH.requestFile = function( fileName, callback ){
+
+		VH.xmlHttp = new XMLHttpRequest ();
+		VH.xmlHttp.open( 'GET', fileName, true );
+		VH.xmlHttp.onreadystatechange = callback;
+		VH.xmlHttp.send( null );
+//		return xmlHttp.responseText;
 
 	};
 
+
 	VH.loadScript = function ( fileName, callback ) {
 
-		var callback = callback ? callback : function () {} ;
+		callback = callback ? callback : function () {} ;
 
 		var js = document.body.appendChild ( document.createElement( 'script' ) );
 
-		js.onload = callback();
+		js.onload = callback;
 
 		js.setAttribute ( 'src', fileName );
 
@@ -225,8 +271,8 @@
 
 		if ( parameters.indexOf( 'noAxis' ) === -1 ) {
 
-			var axis = new THREE.AxisHelper( 50 );
-			scene.add( axis );
+			var axisHelper = new THREE.AxisHelper( 5 );
+			scene.add( axisHelper );
 
 		}
 
@@ -311,7 +357,18 @@
 
 		if ( ! scene ) { return; }
 
-		VH.cssBackround = VH.ifr.contentDocument.body.appendChild( document.createElement('style') );
+		if ( VH.ifr ) {
+
+			VH.cssBackround = VH.ifr.contentDocument.body.appendChild( document.createElement('style') );
+
+		} else {
+
+//			document.body.appendChild( document.createElement('style') );
+
+			return;
+
+		}
+
 		var col1 = "#" + Math.random().toString(16).slice(2, 8);
 		var col2 = "#" + Math.random().toString(16).slice(2, 8);
 		var col3 = "#" + Math.random().toString(16).slice(2, 8);
@@ -324,5 +381,7 @@
 			'background: -moz-radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); ' +
 			'background: radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); }' +
 		'';
+
+		//airDoodle = true;
 
 	};
