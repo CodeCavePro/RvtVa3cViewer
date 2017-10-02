@@ -49,8 +49,6 @@ jQuery(document).ready(function($) {
         VA3C.lightingRig.setSpotlightsColor(e);
     });
 
-
-
     //set background colors on load
     var bgStr = "linear-gradient(" + VA3C.uiVariables.topColor + " , " + VA3C.uiVariables.bottomColor +")";
     $('body').css( "background", bgStr);
@@ -58,11 +56,5 @@ jQuery(document).ready(function($) {
     //hide the dat.gui close controls button
     $(".close-button").css('visibility', 'hidden');
 
-
-    //load our sample JSON file - for development of the colored meshes from GH
-    //$.getJSON("./js/rvtenergy.json", function( data ){
-    $.getJSON("./js/va3c.json", function( data ){
-        VA3C.jsonLoader.loadSceneFromJson(data);
-    });
-
+    VA3C.jsonLoader.loadSceneFromURL('./models/va3c.json');    
 });
