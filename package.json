@@ -1,0 +1,52 @@
+{
+  "name": "rvt-va3c-viewer",
+  "version": "1.0.0",
+  "description": "Revit 3D Model Viewer with Three.js",
+  "main": "index.js",
+  "dependencies": {
+    "dat.gui": "^0.6.1",
+    "jquery": "^3.2.1",
+    "jquery-migrate": "^3.0.1",
+    "jquery-ui-dist": "^1.12.1",
+    "stats.js": "^0.17.0",
+    "three": "^0.87.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenHoReCa/RvtVa3cViewer.git"
+  },
+  "keywords": [
+    "revit",
+    "three.js",
+    "viewer",
+    "model",
+    "project",
+    "3D"
+  ],
+  "author": {
+    "name" : "Theo Armour",
+    "email" : "tarmour@gmail.com",
+    "url" : "http://theo-armour.github.io"
+  },
+  "contributors": [
+    {
+      "name" : "Jeremy Tammik",
+      "email" : "jeremy.tammik@autodesk.com",
+      "url" : "http://thebuildingcoder.typepad.com"
+    },
+    {
+      "name" : "Zhmayev Yaroslav",
+      "email" : "salaros@salaros.com",
+      "url" : "http://salaros.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OpenHoReCa/RvtVa3cViewer/issues"
+  },
+  "homepage": "https://github.com/OpenHoReCa/RvtVa3cViewer#readme"
+}
