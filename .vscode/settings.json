@@ -1,0 +1,8 @@
+{
+    // Exclude files from File Explorer
+    "files.exclude": {
+        "**/*.bak*": true, 
+        "**/yarn.lock": true,
+        "**/node_modules": true
+    }
+}
