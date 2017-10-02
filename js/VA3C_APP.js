@@ -30,6 +30,7 @@ VA3C.initViewer = function(viewerDiv, statsDiv){
     VA3C.renderer = new THREE.WebGLRenderer(
         {
             alpha: true,
+            antialias: true,
             maxLights: 10
         }
     );
