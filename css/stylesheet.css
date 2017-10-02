@@ -1,36 +1,103 @@
-body{
-    margin: 0px;
-    overflow: hidden;
-    font-family: 'lucida grande', Sans-Serif;
-    font-size: 75%;
+body {
+  margin: 0px;
+  overflow: hidden;
+  font-family: 'lucida grande', Sans-Serif;
+  font-size: 75%;
 }
 
-a:link {color: #787878;}
-a:visited {color:#787878;}
-a:hover {color: #a0a0a0;}
+a:link, a:visited {
+  color: #787878;
+}
+
+a:hover {
+  color: #a0a0a0;
+}
 
 .attributeList {
-    height: 1px;
-    width: 360px;
-    background-color: #fafafa;
-    font-size: 11px;
-    color: #555;
-    text-align: left;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 5;
-    padding: 5px 6px;
-    display:none;
+  height: 1px;
+  width: 360px;
+  background-color: #fafafa;
+  font-size: 11px;
+  color: #555;
+  text-align: left;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 5;
+  padding: 5px 6px;
+  display: none;
 }
 
 .attributeList h5 {
-    display: inline;
-    color : lightslategray;;
+  display: inline;
+  color: lightslategray;
 }
 
-.attributeListHeader{
-    background-color: #e8e8e8;
-    font-size: 13px;
-    padding: 5px 2px;
+.attributeListHeader {
+  background-color: #e8e8e8;
+  font-size: 13px;
+  padding: 5px 2px;
+}
+
+.dg {
+  color: #555;
+  text-shadow: none !important;
+}
+
+.dg.main.taller-than-window .close-button {
+  border-top: 1px solid #ddd;
+}
+
+.dg.main .close-button {
+  background-color: #ccc;
+}
+
+.dg.main .close-button:hover {
+  background-color: #ddd;
+}
+
+.dg.main::-webkit-scrollbar {
+  background: #fafafa;
+}
+
+.dg.main::-webkit-scrollbar-thumb {
+  background: #bbb;
+}
+
+.dg li:not(.folder) {
+  background: #fafafa;
+  border-bottom: 1px solid #ddd;
+}
+
+.dg li.save-row .button {
+  text-shadow: none !important;
+}
+
+.dg li.title {
+  background: #e8e8e8 url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlI+hKgFxoCgAOw==) 6px 10px no-repeat;
+}
+
+.dg .cr.function:hover, .dg .cr.boolean:hover {
+  background: #fff;
+}
+
+.dg .c input[type=text] {
+  background: #e9e9e9;
+}
+
+.dg .c input[type=text]:hover {
+  background: #eee;
+}
+
+.dg .c input[type=text]:focus {
+  background: #eee;
+  color: #555;
+}
+
+.dg .c .slider {
+  background: #e9e9e9;
+}
+
+.dg .c .slider:hover {
+  background: #eee;
 }

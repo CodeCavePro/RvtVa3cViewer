@@ -4,5 +4,9 @@
         "**/*.bak*": true, 
         "**/yarn.lock": true,
         "**/node_modules": true
-    }
+    },
+
+    // Easy SASS extension settings
+    "easysass.targetDir": "./css/",
+    "easysass.excludeRegex": "^(?!stylesheet.scss).+"
 }

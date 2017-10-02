@@ -1,0 +1,56 @@
+.dg {
+  &.main {
+    &.taller-than-window .close-button {
+      border-top: 1px solid #ddd;
+    }
+    .close-button {
+      background-color: #ccc;
+      &:hover {
+        background-color: #ddd;
+      }
+    }
+    &::-webkit-scrollbar {
+      background: #fafafa;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #bbb;
+    }
+  }
+  color: #555;
+  text-shadow: none !important;
+  li {
+    &:not(.folder) {
+      background: #fafafa;
+      border-bottom: 1px solid #ddd;
+    }
+    &.save-row .button {
+      text-shadow: none !important;
+    }
+    &.title {
+      background: #e8e8e8 url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlI+hKgFxoCgAOw==) 6px 10px no-repeat;
+    }
+  }
+  .cr {
+    &.function:hover, &.boolean:hover {
+      background: #fff;
+    }
+  }
+  .c {
+    input[type=text] {
+      background: #e9e9e9;
+      &:hover {
+        background: #eee;
+      }
+      &:focus {
+        background: #eee;
+        color: #555;
+      }
+    }
+    .slider {
+      background: #e9e9e9;
+      &:hover {
+        background: #eee;
+      }
+    }
+  }
+}
