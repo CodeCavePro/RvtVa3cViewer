@@ -110,7 +110,11 @@ VA3C.jsonLoader.loadSceneFromURL = function(urlToLoad) {
     xobj.overrideMimeType("application/json");
     xobj.open('GET', urlToLoad, true);
     xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") {
+        if (4 !== xobj.readyState) {
+            return;
+        }
+    
+        if (xobj.status == "200") {
             var jsonObj = JSON.parse(xobj.responseText);
             VA3C.jsonLoader.loadSceneFromJson(jsonObj);
         } else {
