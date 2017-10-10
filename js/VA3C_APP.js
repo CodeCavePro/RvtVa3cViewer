@@ -627,9 +627,9 @@ VA3C.attributes.storeSelectedObject = function( selected, isObject3D ){
 
 //function to paint an element with a material.  Called when an element is selected or de-selected
 VA3C.attributes.paintElement = function(elementToPaint, material){
-
-        elementToPaint.material = material;
-
+    // Disabling paintElement function
+    return false;
+    elementToPaint.material = material;
 };
 
 //function to populate the attribute list ( the user-facing html element ) with the selected element's attributes
