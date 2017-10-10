@@ -36,7 +36,7 @@ VA3C.initViewer = function(viewerDiv, statsDiv){
     );
     VA3C.renderer.setClearColor(0x000000, 0.0);
     VA3C.renderer.setSize( window.innerWidth, window.innerHeight );
-    VA3C.renderer.shadowMapEnabled = true;
+    VA3C.renderer.shadowMap.enabled = true;
     VA3C.container.append( VA3C.renderer.domElement );
 
     //set up the stats window
