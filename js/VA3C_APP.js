@@ -659,11 +659,3 @@ VA3C.attributes.populateAttributeList = function( jsonData ){
     //Show the html element
     VA3C.attributes.list.show("slow");
 };
-
-
-
-
-
-
-
-
