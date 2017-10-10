@@ -107,22 +107,17 @@ VA3C.jsonLoader.loadSceneFromJson = function(jsonToLoad){
 
 //a function to fetch JSON data from URL / file
 VA3C.jsonLoader.loadSceneFromURL = function(urlToLoad) {
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', urlToLoad, true);
-    xobj.onreadystatechange = function () {
-        if (4 !== xobj.readyState) {
-            return;
-        }
-    
-        if (xobj.status == "200") {
-            var jsonObj = JSON.parse(xobj.responseText);
-            VA3C.jsonLoader.loadSceneFromJson(jsonObj);
-        } else {
-            console.log('Failed to load JSON model from: ' + urlToLoad);
-        }
-    };
-    xobj.send(null);  
+    $.ajax({
+        url: urlToLoad,
+        method: "GET",
+        dataType: "json",
+    })
+    .done(function(jsonObj) {
+        VA3C.jsonLoader.loadSceneFromJson(jsonObj);
+    })
+    .fail(function() {
+        console.log('Failed to load JSON model from: ' + urlToLoad);
+    });
 }
 
 //call this function to set a geometry's face material index to the same index as the face number
