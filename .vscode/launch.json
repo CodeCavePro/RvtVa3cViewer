@@ -9,6 +9,9 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "${file}",
+            "runtimeArgs": [ 
+                "--allow-file-access-from-files"
+            ],
             "webRoot": "${workspaceRoot}"
         }
     ]
