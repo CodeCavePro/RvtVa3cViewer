@@ -46,9 +46,10 @@ VA3C.initViewer = function(viewerDiv, statsDiv){
 
     //set up the camera and orbit controls
     VA3C.camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 1, 1000000 );
-    VA3C.camera.position.set( -2000, 1000, -2000 );
+    VA3C.camera.position.set( -2500, 1000, -2500 );
+
     VA3C.orbitControls = new THREE.OrbitControls( VA3C.camera, VA3C.renderer.domElement );
-    VA3C.orbitControls.target.set( 0, 100, 0 );
+    VA3C.orbitControls.target.set( 0, -300, 0 );
 
     //a clock.  the camera uses this
     VA3C.clock = new THREE.Clock();
