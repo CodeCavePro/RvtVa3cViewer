@@ -49,7 +49,7 @@ VA3C.initViewer = function(viewerDiv, statsDiv){
     VA3C.camera.position.set( -2500, 1000, -2500 );
 
     VA3C.orbitControls = new THREE.OrbitControls( VA3C.camera, VA3C.renderer.domElement );
-    VA3C.orbitControls.target.set( 0, -300, 0 );
+    VA3C.orbitControls.target.set( 0, -600, 0 );
 
     //a clock.  the camera uses this
     VA3C.clock = new THREE.Clock();
