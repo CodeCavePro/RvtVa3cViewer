@@ -176,7 +176,8 @@ VA3C.jsonLoader.processSceneGeometry = function(){
             items[i].geometry.mergeVertices();
             items[i].geometry.computeFaceNormals();
             items[i].geometry.computeVertexNormals();
-            items[i].material.shading = THREE.SmoothShading;
+            items[i].material.flatShading = THREE.SmoothShading;
+            items[i].material.side = 2;
             items[i].castShadow = true;
             items[i].receiveShadow = true;
             //add element to our list of elements that can be selected
@@ -192,7 +193,8 @@ VA3C.jsonLoader.processSceneGeometry = function(){
                 if ( itemsChildren[k].hasOwnProperty("geometry") ) {
                     itemsChildren[k].geometry.mergeVertices();
                     itemsChildren[k].geometry.computeFaceNormals();
-                    itemsChildren[k].geometry.computeVertexNormals();
+                    //itemsChildren[k].geometry.computeVertexNormals();
+                    itemsChildren[k].material.flatShading = THREE.SmoothShading;
                     itemsChildren[k].material.side = 2;
                     itemsChildren[k].castShadow = true;
                     itemsChildren[k].receiveShadow = true;
