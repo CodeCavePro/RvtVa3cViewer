@@ -7,8 +7,11 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Launch Chrome",
             "url": "${workspaceRoot}/revit2.html",
+            "windows": {
+                "url": "${workspaceRoot}\\revit2.html"
+            },
             "runtimeArgs": [ 
                 "--allow-file-access-from-files"
             ],
