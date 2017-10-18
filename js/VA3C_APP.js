@@ -241,12 +241,11 @@ VA3C.lightingRig.spotLights = [];
 
 
 //function that creates lights in the scene
-VA3C.lightingRig.createLights = function() {
+VA3C.lightingRig.createLights  = function() {
 
     // create ambient light
-    VA3C.lightingRig.ambientLight = new THREE.AmbientLight( 0x696969 );
+    VA3C.lightingRig.ambientLight = new THREE.AmbientLight( VA3C.uiVariables.ambientLightColor );
     VA3C.scene.add( VA3C.lightingRig.ambientLight );
-
 
     //using the bounding sphere calculated above, get a numeric value to position the lights away from the center
     var offset = VA3C.boundingSphere.radius * 6;
@@ -255,67 +254,49 @@ VA3C.lightingRig.createLights = function() {
     var center = VA3C.boundingSphere.center;
 
     //create a hemisphere light?  nope. doesn't seem to work with models exported from revit.
-    //VA3C.scene.add( new THREE.HemisphereLight());
-
+    var hemiLight = new THREE.HemisphereLight(0x303030, 0x909090, 0.75);
+    hemiLight.position.set( center.x + offset, center.y + offset, center.z + offset );
+    VA3C.scene.add(hemiLight);
 
     //create a series of spotlights
+    var spotLight1 = new THREE.SpotLight( VA3C.uiVariables.spotlightsColor, 0.75 );
+    spotLight1.position.set( -center.x - offset / 2, center.y + offset / 1.5, -center.z - offset / 2 );
+    spotLight1.target.position.set( center.x, center.y, center.z );
+    spotLight1.castShadow = false;
+    spotLight1.shadow.mapSize.width = 2048;
+    spotLight1.shadow.mapSize.height = 2048;
+    spotLight1.shadow.camera.near = 1000;
+    spotLight1.shadow.camera.far = 20000;
+    spotLight1.shadow.camera.fov = 30;
+    VA3C.scene.add(spotLight1);
+    VA3C.lightingRig.spotLights.push(spotLight1);
 
-    //directly above
-    var spotA = new THREE.SpotLight( 0x666666 );
-    spotA.position.set(center.x, center.y + offset, center.z);
-    spotA.target.position.set(center.x, center.y, center.z);
-    spotA.castShadow = false;
-    VA3C.scene.add( spotA );
-    VA3C.lightingRig.spotLights.push(spotA);
-
-    //directly below
-    var spotB = new THREE.SpotLight( 0x666666 );
-    spotB.position.set(center.x, center.y - offset, center.z);
-    spotB.target.position.set(center.x, center.y, center.z);
-    spotB.castShadow = false;
-    VA3C.scene.add( spotB );
-    VA3C.lightingRig.spotLights.push( spotB );
-
-    //4 from the cardinal directions, at roughly 45deg
-    var spotC = new THREE.SpotLight( 0x666666 );
-    spotC.position.set(center.x + offset, center.y + offset, center.z);
-    spotC.target.position.set(center.x, center.y, center.z);
-    spotC.castShadow = false;
-    VA3C.scene.add( spotC );
-    VA3C.lightingRig.spotLights.push(spotC);
-
-    var spotD = new THREE.SpotLight( 0x666666 );
-    spotD.position.set(center.x, center.y + offset, center.z + offset);
-    spotD.target.position.set(center.x, center.y, center.z);
-    spotD.castShadow = false;
-    VA3C.scene.add( spotD );
-    VA3C.lightingRig.spotLights.push(spotD);
-
-    var spotE = new THREE.SpotLight( 0x666666 );
-    spotE.position.set(center.x - offset, center.y + offset, center.z);
-    spotE.target.position.set(center.x, center.y, center.z);
-    spotE.castShadow = false;
-    VA3C.scene.add( spotE );
-    VA3C.lightingRig.spotLights.push(spotE);
-
-    var spotF = new THREE.SpotLight( 0x666666 );
-    spotF.position.set(center.x, center.y + offset, center.z + offset);
-    spotF.target.position.set(center.x, center.y, center.z);
-    spotF.castShadow = false;
-    VA3C.scene.add( spotF );
-    VA3C.lightingRig.spotLights.push(spotF);
-
-
+    var spotLight2 = new THREE.SpotLight( VA3C.uiVariables.spotlightsColor, 0.75 );
+    spotLight2.position.set( center.x + offset / 2, center.y + offset / 1.5, -center.z - offset / 2 );
+    spotLight2.target.position.set( center.x, center.y, center.z );
+    spotLight2.castShadow = false;
+    spotLight2.shadow.mapSize.width = 2048;
+    spotLight2.shadow.mapSize.height = 2048;
+    spotLight2.shadow.camera.near = 1000;
+    spotLight2.shadow.camera.far = 20000;
+    spotLight2.shadow.camera.fov = 30;
+    VA3C.scene.add( spotLight2 );
+    VA3C.lightingRig.spotLights.push(spotLight2);
 
     //directional light - the sun
-    var light = new THREE.DirectionalLight( 0xffffff, 1 );
-    light.position.set( 10000, 10000, 10000 );
-    light.target.position.set(center);
-    light.castShadow = true;
+    var sunLight = new THREE.DirectionalLight( VA3C.uiVariables.spotlightsColor );
+    sunLight.position.set( center.x + offset, center.y + offset, -center.z-offset );
+    sunLight.target.position.set( center.x, center.y, center.z );
+    sunLight.castShadow = false;
+    sunLight.shadow.mapSize.width = 2048;
+    sunLight.shadow.mapSize.height = 2048;
+    sunLight.shadow.camera.near = 1000;
+    sunLight.shadow.camera.far = 20000;
+    sunLight.shadow.camera.fov = 30;
 
     //add the light to our scene and to our app object
-    VA3C.lightingRig.sunLight = light;
-    VA3C.scene.add( light );
+    VA3C.lightingRig.sunLight = sunLight;
+    VA3C.scene.add( sunLight );
 
 };
 
@@ -401,16 +382,16 @@ VA3C.UiConstructor = function(){
 
     //top and bottom color
     this.topColor = "#B9C6D4";
-    this.bottomColor = "#0D0D1B";
+    this.bottomColor = "#2F2F2F";
 
 
     //LIGHTING VARIABLES
 
     //spotlight color
-    this.spotlightsColor = '#666666';
+    this.spotlightsColor = '#606060';
 
     //ambient light color
-    this.ambientLightColor = '#666666';
+    this.ambientLightColor = '#303030';
 
     //sun azimuth and altitude
     this.solarAzimuth = 180;
