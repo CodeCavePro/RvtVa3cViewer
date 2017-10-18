@@ -99,11 +99,15 @@ VA3C.jsonLoader.loadSceneFromJson = function(jsonToLoad){
     VA3C.jsonLoader.makeFaceMaterialsWork();
     VA3C.jsonLoader.processSceneGeometry();
     VA3C.jsonLoader.computeBoundingSphere();
+
     //set up the lighting rig
     VA3C.lightingRig.createLights();
+
     //call zoom extents
     VA3C.uiVariables.zoomExtents();
 
+    // Add axes to the scene
+    VA3C.uiVariables.createArrows();
 };
 
 //a function to fetch JSON data from URL / file
@@ -410,6 +414,12 @@ VA3C.UiConstructor = function(){
     this.solarAzimuth = 180;
     this.solarAltitude = 45;
 
+    //create arrows for the scene
+    this.createArrows = function() {
+        VA3C.scene.add(new THREE.ArrowHelper(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, 0, 0), 30, 0xcc0000));
+        VA3C.scene.add(new THREE.ArrowHelper(new THREE.Vector3(0, 1, 0), new THREE.Vector3(0, 0, 0), 30, 0x00cc00));
+        VA3C.scene.add(new THREE.ArrowHelper(new THREE.Vector3(0, 0, 1), new THREE.Vector3(0, 0, 0), 30, 0x0000cc));
+    };
 };
 
 //an object to store the live application variables and functions controlled by the UI
