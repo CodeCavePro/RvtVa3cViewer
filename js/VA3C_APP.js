@@ -243,7 +243,7 @@ VA3C.lightingRig.createLights = function() {
 
 
     //using the bounding sphere calculated above, get a numeric value to position the lights away from the center
-    var offset = VA3C.boundingSphere.radius * 2;
+    var offset = VA3C.boundingSphere.radius * 6;
 
     //get the center of the bounding sphere.  we'll use this to center the rig
     var center = VA3C.boundingSphere.center;
